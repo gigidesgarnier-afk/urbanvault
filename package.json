@@ -1,0 +1,9 @@
+{
+  "name": "urbanvault",
+  "version": "1.0.0",
+  "description": "UrbanVault — Bangkok Property Monitoring Service",
+  "scripts": {
+    "start": "npx serve public",
+    "build": "echo 'Static site — no build needed'"
+  }
+}
