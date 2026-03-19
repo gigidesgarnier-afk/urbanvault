@@ -4,6 +4,15 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>UrbanVault — Bangkok Property Monitoring</title>
+<meta name="description" content="UrbanVault monitors and inspects your Bangkok property while you're away. Monthly inspections, photo reports, and 24/7 emergency response for overseas property owners.">
+<meta property="og:title" content="UrbanVault — Bangkok Property Monitoring">
+<meta property="og:description" content="Professional property inspections for overseas owners. Monthly reports, photo documentation, and peace of mind.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://urbanvault.co">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="UrbanVault — Bangkok Property Monitoring">
+<meta name="twitter:description" content="Professional property inspections for overseas owners. Monthly reports, photo documentation, and peace of mind.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'><rect width='32' height='32' rx='4' fill='%2307111f'/><text x='16' y='22' font-family='serif' font-size='16' font-weight='bold' fill='%23c8a96e' text-anchor='middle'>UV</text></svg>">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400&family=Jost:wght@200;300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -488,15 +497,101 @@ footer{
 .foot-right a{color:var(--gold);text-decoration:none}
 .foot-copy{font-size:.65rem;color:rgba(245,240,232,.18);margin-top:8px}
 
+/* ─── PARTNER / AGENT ─── */
+#partners{background:linear-gradient(135deg,rgba(200,169,110,.07) 0%,transparent 60%)}
+.partner-intro{max-width:600px;margin:0 auto 56px;text-align:center}
+.partner-intro p{color:var(--white-70);font-size:.95rem;line-height:1.8;margin-top:16px}
+.comm-cards{display:grid;grid-template-columns:1fr 1fr;gap:24px;max-width:680px;margin:0 auto 56px}
+.comm-card{border:1px solid var(--gold-border);border-radius:4px;padding:36px 32px;text-align:center;position:relative;overflow:hidden}
+.comm-card.featured{border-color:var(--gold);background:rgba(200,169,110,.06)}
+.comm-card.featured::before{content:'MONTH 1';position:absolute;top:12px;right:-22px;background:var(--gold);color:var(--navy);font-size:.58rem;font-weight:500;letter-spacing:.12em;padding:4px 32px;transform:rotate(45deg);transform-origin:center}
+.comm-pct{font-family:'Playfair Display',serif;font-size:3.8rem;color:var(--gold);line-height:1;margin-bottom:8px}
+.comm-label{font-size:.7rem;letter-spacing:.18em;text-transform:uppercase;color:var(--white-70);margin-bottom:16px}
+.comm-desc{font-size:.82rem;color:var(--white-50);line-height:1.7}
+.comm-example{background:rgba(255,255,255,.04);border:1px solid var(--white-10);border-radius:4px;padding:28px 32px;max-width:680px;margin:0 auto 48px}
+.comm-example h4{font-family:'Playfair Display',serif;font-size:1rem;font-weight:400;color:var(--gold);margin-bottom:20px;letter-spacing:.05em}
+.comm-row{display:flex;justify-content:space-between;align-items:center;padding:10px 0;border-bottom:1px solid var(--white-10);font-size:.85rem}
+.comm-row:last-child{border-bottom:none;padding-top:16px;margin-top:4px}
+.comm-row span:first-child{color:var(--white-70)}
+.comm-row span:last-child{color:var(--white);font-weight:300}
+.comm-row.total span{color:var(--gold);font-size:1rem}
+.partner-steps{display:grid;grid-template-columns:repeat(3,1fr);gap:32px;max-width:680px;margin:0 auto 48px}
+.partner-step{text-align:center}
+.partner-step-num{width:36px;height:36px;border-radius:50%;border:1px solid var(--gold);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:.75rem;color:var(--gold);font-family:'Playfair Display',serif}
+.partner-step-title{font-size:.8rem;letter-spacing:.12em;text-transform:uppercase;color:var(--white);margin-bottom:8px}
+.partner-step-desc{font-size:.8rem;color:var(--white-50);line-height:1.7}
+.partner-cta{text-align:center}
+.partner-cta p{font-size:.82rem;color:var(--white-50);margin-top:14px}
+.partner-cta a.subtle{color:var(--gold);text-decoration:none;border-bottom:1px solid var(--gold-border)}
+@media(max-width:960px){
+  .comm-cards{grid-template-columns:1fr;max-width:360px}
+  .partner-steps{grid-template-columns:1fr;max-width:360px}
+}
+
 /* ─── REVEAL ─── */
 .rv{opacity:0;transform:translateY(22px);transition:opacity .7s ease,transform .7s ease}
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
 
+/* ─── HAMBURGER ─── */
+.hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:301}
+.hamburger span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:all .3s}
+.hamburger.active span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.hamburger.active span:nth-child(2){opacity:0}
+.hamburger.active span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+.mobile-menu{
+  display:none;position:fixed;top:0;left:0;right:0;bottom:0;z-index:299;
+  background:rgba(7,17,31,0.97);backdrop-filter:blur(20px);
+  flex-direction:column;align-items:center;justify-content:center;gap:32px;
+  opacity:0;transition:opacity .35s;
+}
+.mobile-menu.open{display:flex;opacity:1}
+.mobile-menu a{
+  font-family:'Jost',sans-serif;font-size:1.1rem;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--white-70);text-decoration:none;transition:color .25s;
+}
+.mobile-menu a:hover{color:var(--gold)}
+.mobile-menu .nav-btn{font-size:.85rem;margin-top:8px}
+
+/* ─── HOW IT WORKS ─── */
+.hiw-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;margin-top:48px;position:relative}
+.hiw-step{text-align:center;position:relative;padding:0 16px}
+.hiw-num{
+  width:52px;height:52px;border-radius:50%;border:1.5px solid var(--gold);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 20px;
+  font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--gold);
+}
+.hiw-icon{margin-bottom:16px;color:var(--gold)}
+.hiw-icon svg{width:32px;height:32px}
+.hiw-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:400;margin-bottom:10px;color:var(--white)}
+.hiw-desc{font-size:.88rem;color:var(--white-70);line-height:1.7}
+.hiw-arrow{
+  position:absolute;top:26px;right:-28px;color:var(--gold-border);font-size:1.2rem;
+}
+
+/* ─── FAQ ─── */
+.faq-list{max-width:720px;margin:48px auto 0}
+.faq-item{border-bottom:1px solid var(--white-10)}
+.faq-q{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:22px 0;cursor:pointer;font-size:.95rem;color:var(--white);
+  font-weight:300;transition:color .25s;gap:16px;
+}
+.faq-q:hover{color:var(--gold)}
+.faq-q.active{color:var(--gold)}
+.faq-q svg{flex-shrink:0;transition:transform .3s;width:18px;height:18px;stroke:currentColor}
+.faq-q.active svg{transform:rotate(45deg)}
+.faq-a{
+  max-height:0;overflow:hidden;transition:max-height .4s ease,padding .4s ease;
+  font-size:.88rem;color:var(--white-70);line-height:1.8;
+}
+.faq-a.open{max-height:200px;padding-bottom:22px}
+
 /* ─── RESPONSIVE ─── */
 @media(max-width:960px){
   nav{padding:20px 24px}
   nav.stuck{padding:14px 24px}
+  .hamburger{display:block}
   .nav-right .nav-link{display:none}
   .sec{padding:80px 24px}
   .hero-content{padding:0 24px}
@@ -511,12 +606,85 @@ footer{
   .foot-links{flex-wrap:wrap}
   .modal{max-width:100%}
   .modal-body,.modal-head{padding:28px 24px}
+  .hiw-grid{grid-template-columns:1fr;gap:32px;max-width:400px;margin-left:auto;margin-right:auto}
+  .hiw-arrow{display:none}
 }
 @media(max-width:600px){
   .trust-grid{grid-template-columns:1fr}
   .cf-row{grid-template-columns:1fr}
   .pay-methods{grid-template-columns:1fr}
+  .report-mockup{transform:none !important;max-width:100%}
 }
+
+/* ─── SAMPLE REPORT ─── */
+.report-section{position:relative;overflow:hidden}
+.report-layout{display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:center}
+.report-text{max-width:500px}
+.report-text .sec-tag{justify-content:flex-start}
+.report-mockup{
+  background:#fff;color:#1a2b4a;border-radius:6px;padding:32px 28px;
+  font-family:'Jost',sans-serif;font-size:.78rem;
+  box-shadow:0 20px 60px rgba(0,0,0,.5);
+  transform:perspective(800px) rotateY(-3deg);
+  transition:transform .4s;max-width:420px;margin:0 auto;
+}
+.report-mockup:hover{transform:perspective(800px) rotateY(0deg)}
+.report-mockup-header{
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:2px solid #1a2b4a;padding-bottom:12px;margin-bottom:16px;
+}
+.report-mockup-logo{font-family:'Playfair Display',serif;font-weight:700;font-size:1rem;color:#1a2b4a}
+.report-mockup-logo span{color:#c8a96e}
+.report-badge{background:#1a2b4a;color:#fff;font-size:.6rem;padding:3px 10px;border-radius:2px;letter-spacing:.08em;text-transform:uppercase}
+.report-tbl{width:100%;border-collapse:collapse;margin-bottom:14px}
+.report-tbl th{
+  background:#1a2b4a;color:#fff;text-align:left;padding:6px 10px;font-weight:400;font-size:.68rem;
+  letter-spacing:.06em;text-transform:uppercase;
+}
+.report-tbl td{padding:5px 10px;border-bottom:1px solid #e5e7eb;font-size:.72rem}
+.report-tbl td:first-child{font-weight:500;color:#1a2b4a;width:35%}
+.report-tbl td:last-child{color:#555}
+.status-dot{display:inline-block;width:7px;height:7px;border-radius:50%;margin-right:5px;vertical-align:middle}
+.status-ok{background:#22c55e}
+.status-warn{background:#f59e0b}
+.report-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
+.report-photo-box{
+  background:#f0f0f0;border-radius:3px;aspect-ratio:4/3;display:flex;
+  align-items:center;justify-content:center;font-size:.6rem;color:#999;flex-direction:column;gap:2px
+}
+.report-photo-box svg{opacity:.4}
+.report-stamp{
+  text-align:center;margin-top:14px;padding:8px;border:1.5px solid #c8a96e;border-radius:3px;
+  font-size:.65rem;color:#c8a96e;letter-spacing:.05em;text-transform:uppercase;
+}
+.report-features li{
+  font-size:.92rem;color:var(--white-70);line-height:2;padding-left:8px;list-style:none;
+}
+.report-features li::before{content:'✓';color:var(--gold);margin-right:10px;font-weight:500}
+@media(max-width:900px){
+  .report-layout{grid-template-columns:1fr;gap:40px}
+}
+
+/* ─── WHATSAPP FAB ─── */
+.wa-fab{
+  position:fixed;bottom:28px;right:28px;z-index:999;
+  width:60px;height:60px;border-radius:50%;
+  background:#25D366;border:none;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  box-shadow:0 4px 20px rgba(37,211,102,.4);
+  transition:transform .25s,box-shadow .25s;
+}
+.wa-fab:hover{transform:scale(1.1);box-shadow:0 6px 28px rgba(37,211,102,.55)}
+.wa-fab svg{width:32px;height:32px;fill:#fff}
+.wa-tooltip{
+  position:fixed;bottom:96px;right:28px;z-index:998;
+  background:var(--navy-3);color:var(--white);padding:10px 16px;border-radius:8px;
+  font-size:.82rem;white-space:nowrap;
+  box-shadow:0 4px 16px rgba(0,0,0,.3);border:1px solid var(--gold-border);
+  opacity:0;transform:translateY(8px);
+  transition:opacity .3s,transform .3s;pointer-events:none;
+}
+.wa-fab:hover + .wa-tooltip{opacity:1;transform:translateY(0)}
 </style>
 </head>
 <body>
@@ -528,9 +696,21 @@ footer{
     <a href="#calculator" class="nav-link">Calculator</a>
     <a href="#trust" class="nav-link">Why Us</a>
     <a href="#contact" class="nav-link">Contact</a>
-    <a href="#calculator" class="nav-btn">Calculate My Plan</a>
   </div>
+  <button class="hamburger" id="hamburger" aria-label="Menu">
+    <span></span><span></span><span></span>
+  </button>
 </nav>
+
+<!-- Mobile Menu -->
+<div class="mobile-menu" id="mobileMenu">
+  <a href="#how-it-works" onclick="closeMobile()">How It Works</a>
+  <a href="#calculator" onclick="closeMobile()">Calculator</a>
+  <a href="#trust" onclick="closeMobile()">Why Us</a>
+  <a href="#sample-report" onclick="closeMobile()">Sample Report</a>
+  <a href="#contact" onclick="closeMobile()">Contact</a>
+  <a href="#calculator" class="nav-btn" onclick="closeMobile()">Calculate My Plan</a>
+</div>
 
 <!-- HERO -->
 <section id="hero">
@@ -550,6 +730,44 @@ footer{
     <div class="hstat"><div class="hstat-n">200+</div><div class="hstat-l">Units Monitored</div></div>
     <div class="hstat"><div class="hstat-n">48h</div><div class="hstat-l">Report Delivery</div></div>
     <div class="hstat"><div class="hstat-n">24/7</div><div class="hstat-l">Emergency Response</div></div>
+  </div>
+</section>
+
+<!-- HOW IT WORKS -->
+<section id="how-it-works" class="sec">
+  <div class="sec-inner">
+    <div class="rv" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center">How It Works</div>
+      <h2 class="sec-h">Three Simple <i>Steps</i></h2>
+    </div>
+    <div class="hiw-grid">
+      <div class="hiw-step rv rv-d1">
+        <div class="hiw-num">01</div>
+        <div class="hiw-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M16 21v-2a4 4 0 00-4-4H6a4 4 0 00-4-4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 21v-2a4 4 0 00-3-3.87M16 3.13a4 4 0 010 7.75"/></svg>
+        </div>
+        <div class="hiw-title">Sign Up</div>
+        <div class="hiw-desc">Choose your package and tell us about your property. We'll set everything up within 48 hours.</div>
+        <div class="hiw-arrow">&#8594;</div>
+      </div>
+      <div class="hiw-step rv rv-d2">
+        <div class="hiw-num">02</div>
+        <div class="hiw-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+        </div>
+        <div class="hiw-title">We Inspect</div>
+        <div class="hiw-desc">Our Bangkok-based team visits your property on schedule — checking utilities, safety, cleanliness, and more.</div>
+        <div class="hiw-arrow">&#8594;</div>
+      </div>
+      <div class="hiw-step rv rv-d3">
+        <div class="hiw-num">03</div>
+        <div class="hiw-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="16" y1="13" x2="8" y2="13"/><line x1="16" y1="17" x2="8" y2="17"/><polyline points="10 9 9 9 8 9"/></svg>
+        </div>
+        <div class="hiw-title">Get Your Report</div>
+        <div class="hiw-desc">Receive a detailed photo report in your inbox with status checks, findings, and recommendations.</div>
+      </div>
+    </div>
   </div>
 </section>
 
@@ -646,8 +864,16 @@ footer{
 
           <div class="calc-result" id="calcResult">
             <div class="result-row">
-              <span class="result-label">Monthly Price</span>
-              <span class="result-val" id="monthlyVal">฿<span id="monthlyNum">2,900</span></span>
+              <span class="result-label">Full Price</span>
+              <span class="result-val" id="fullPriceVal">฿<span id="fullPriceNum">17,400</span></span>
+            </div>
+            <div class="result-row" id="discountRow">
+              <span class="result-label">Discount</span>
+              <span class="result-val" style="font-size:1.1rem;color:var(--gold)" id="discountPct">−5%</span>
+            </div>
+            <div class="result-row" id="discountAmtRow">
+              <span class="result-label">You Save</span>
+              <span class="result-val" style="font-size:1.1rem;color:var(--gold)" id="discountAmt">−฿870</span>
             </div>
             <div class="result-row" style="margin-bottom:20px">
               <span class="result-label">Duration</span>
@@ -705,6 +931,156 @@ footer{
   </div>
 </section>
 
+<!-- SAMPLE REPORT -->
+<section id="sample-report" class="sec report-section">
+  <div class="sec-inner">
+    <div class="report-layout">
+      <div class="report-text rv">
+        <div class="sec-tag">Sample Report</div>
+        <h2 class="sec-h">See What You'll <i>Receive</i></h2>
+        <div class="rule"></div>
+        <p style="font-size:.95rem;color:var(--white-70);line-height:1.8;margin-bottom:24px">
+          Every inspection comes with a detailed, professional report delivered straight to your inbox — complete with photos, status checks, and actionable recommendations.
+        </p>
+        <ul class="report-features">
+          <li>Property condition overview with status indicators</li>
+          <li>Photo documentation of every room</li>
+          <li>Utilities & safety checks</li>
+          <li>Ventilation & maintenance actions taken</li>
+          <li>Recommendations for next steps</li>
+          <li>Summary with next inspection date</li>
+        </ul>
+      </div>
+      <div class="rv rv-d2">
+        <div class="report-mockup">
+          <!-- Header -->
+          <div class="report-mockup-header">
+            <div class="report-mockup-logo">URBAN<span>VAULT</span></div>
+            <div class="report-badge">Inspection Report</div>
+          </div>
+
+          <!-- Property Info Table -->
+          <table class="report-tbl">
+            <tr><th colspan="2">Property Information</th></tr>
+            <tr><td>Property</td><td>The Lofts Sukhumvit, Unit 12B</td></tr>
+            <tr><td>Owner</td><td>J. Smith</td></tr>
+            <tr><td>Inspection Date</td><td>15 March 2026</td></tr>
+            <tr><td>Inspector</td><td>UrbanVault Team</td></tr>
+          </table>
+
+          <!-- Overall Status -->
+          <table class="report-tbl">
+            <tr><th colspan="2">1. Overall Status</th></tr>
+            <tr><td>Electricity</td><td><span class="status-dot status-ok"></span> Normal</td></tr>
+            <tr><td>Water</td><td><span class="status-dot status-ok"></span> Normal</td></tr>
+            <tr><td>Air Circulation</td><td><span class="status-dot status-ok"></span> Good</td></tr>
+            <tr><td>Cleanliness</td><td><span class="status-dot status-ok"></span> Clean</td></tr>
+            <tr><td>Odor</td><td><span class="status-dot status-ok"></span> None</td></tr>
+            <tr><td>Damage</td><td><span class="status-dot status-warn"></span> Minor scuff — wall</td></tr>
+          </table>
+
+          <!-- Photos -->
+          <div style="font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#1a2b4a;margin-bottom:6px">2. Photos From Inspection</div>
+          <div class="report-photos">
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Living Room
+            </div>
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Kitchen
+            </div>
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Bedroom
+            </div>
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Bathroom
+            </div>
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Balcony
+            </div>
+            <div class="report-photo-box">
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
+              Entrance
+            </div>
+          </div>
+
+          <!-- Safety -->
+          <table class="report-tbl" style="margin-top:10px">
+            <tr><th colspan="2">4. Safety Check</th></tr>
+            <tr><td>Door Lock</td><td><span class="status-dot status-ok"></span> Secure</td></tr>
+            <tr><td>Windows</td><td><span class="status-dot status-ok"></span> Secure</td></tr>
+            <tr><td>Water Leaks</td><td><span class="status-dot status-ok"></span> None</td></tr>
+            <tr><td>Mold</td><td><span class="status-dot status-ok"></span> None</td></tr>
+          </table>
+
+          <!-- Stamp -->
+          <div class="report-stamp">
+            ✓ Inspected & Verified by UrbanVault — 15 Mar 2026
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq" class="sec">
+  <div class="sec-inner">
+    <div class="rv" style="text-align:center">
+      <div class="sec-tag" style="justify-content:center">FAQ</div>
+      <h2 class="sec-h">Frequently Asked <i>Questions</i></h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item rv rv-d1">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What happens if you find damage during an inspection?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">We immediately notify you with photos and a detailed description. For Premium plan members, we can coordinate with local contractors to arrange repairs on your behalf, keeping you informed every step of the way.</div>
+      </div>
+      <div class="faq-item rv rv-d1">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Can I cancel my plan at any time?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Yes. While we offer discounted rates for 6- and 12-month commitments, you can cancel at any time with 30 days' notice. There are no hidden fees or penalties.</div>
+      </div>
+      <div class="faq-item rv rv-d2">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Do you coordinate repairs or just report issues?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">It depends on your plan. Our Essential plan covers inspections and reports. Standard includes coordinating minor maintenance. Premium provides full repair coordination with our trusted network of local contractors.</div>
+      </div>
+      <div class="faq-item rv rv-d2">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          What areas in Bangkok do you cover?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">We cover all major areas of Bangkok including Sukhumvit, Silom, Sathorn, Thonglor, Ekkamai, Ari, Ratchada, and surrounding districts. For properties outside central Bangkok, contact us and we'll confirm availability.</div>
+      </div>
+      <div class="faq-item rv rv-d3">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          How do I receive my inspection reports?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Reports are delivered as professional PDF documents directly to your email within 24 hours of each inspection. They include photos, status checks, and any recommendations — viewable on any device.</div>
+      </div>
+      <div class="faq-item rv rv-d3">
+        <div class="faq-q" onclick="toggleFaq(this)">
+          Is there a minimum contract period?
+          <svg viewBox="0 0 24 24" fill="none" stroke-width="2"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>
+        </div>
+        <div class="faq-a">Our shortest plan is 3 months, which is ideal for trying the service. We also offer 6-month (5% discount) and 12-month (10% discount) plans for owners who want long-term peace of mind.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
 <!-- CONTACT -->
 <section id="contact" class="sec">
   <div class="sec-inner">
@@ -724,6 +1100,10 @@ footer{
           <div class="cinfo">
             <svg class="cinfo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
             <div><div class="cinfo-l">Location</div><div class="cinfo-v">Bangkok, Thailand</div></div>
+          </div>
+          <div class="cinfo">
+            <svg class="cinfo-ico" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347z"/><path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+            <div><div class="cinfo-l">WhatsApp</div><a href="https://wa.me/66649329236" target="_blank" class="cinfo-v" style="color:var(--white);text-decoration:none">+66 64 932 9236</a></div>
           </div>
           <div style="background:var(--gold-dim);border:1px solid var(--gold-border);padding:24px 28px;margin-top:8px">
             <p style="font-size:.84rem;color:var(--white-70);line-height:1.8"><strong style="color:var(--gold);font-weight:500">Response time:</strong> We reply to all enquiries within 24 hours. Share your property address and we'll tailor a recommendation.</p>
@@ -780,6 +1160,7 @@ footer{
     <p><a href="mailto:urbanvault.th@gmail.com">urbanvault.th@gmail.com</a></p>
     <p style="margin-top:4px;font-size:.72rem;color:rgba(245,240,232,.2)">Bangkok, Thailand</p>
     <div class="foot-copy">© 2025 UrbanVault. All rights reserved.</div>
+    <div class="foot-copy" style="margin-top:6px"><a href="partners.html" style="color:rgba(245,240,232,.18);text-decoration:none;font-size:.62rem;letter-spacing:.1em" onmouseover="this.style.color='var(--gold)'" onmouseout="this.style.color='rgba(245,240,232,.18)'">Real estate agent? Partner with us</a></div>
   </div>
 </footer>
 
@@ -895,28 +1276,48 @@ const pkgInclusions = {
 
 function fmt(n){return n.toLocaleString('th-TH')}
 
+const discounts = {3: 0, 6: 0.05, 12: 0.10};
+
 function calcPrices(){
-  const monthly = state.price * state.units;
+  const disc = discounts[state.months] || 0;
+  const monthly = Math.round(state.price * (1 - disc)) * state.units;
   const total = monthly * state.months;
-  return {monthly, total};
+  return {monthly, total, disc};
 }
 
 function updateCalc(){
-  const {monthly, total} = calcPrices();
+  const {monthly, total, disc} = calcPrices();
   const large = state.units >= 12;
 
   document.getElementById('largePortfolio').style.display = large ? 'block' : 'none';
   document.getElementById('calcResult').style.display = large ? 'none' : 'block';
 
   if(!large){
-    document.getElementById('monthlyNum').textContent = fmt(monthly);
+    const fullMonthly = state.price * state.units;
+    const fullTotal = fullMonthly * state.months;
+    const savedAmount = fullTotal - total;
+
+    document.getElementById('fullPriceNum').textContent = fmt(fullTotal);
     document.getElementById('totalNum').textContent = fmt(total);
     document.getElementById('durVal').textContent = state.months + ' month' + (state.months>1?'s':'');
 
+    // discount rows
+    const discRow = document.getElementById('discountRow');
+    const discAmtRow = document.getElementById('discountAmtRow');
+    if(disc > 0){
+      discRow.style.display = 'flex';
+      discAmtRow.style.display = 'flex';
+      document.getElementById('discountPct').textContent = `−${Math.round(disc*100)}%`;
+      document.getElementById('discountAmt').textContent = `−฿${fmt(savedAmount)}`;
+    } else {
+      discRow.style.display = 'none';
+      discAmtRow.style.display = 'none';
+    }
+
     // saving note
     let note = '';
-    if(state.months === 12) note = `Save compared to month-by-month — ${fmt(state.price)} THB/unit/mo locked in for a full year.`;
-    else if(state.months === 6) note = `6-month commitment — full flexibility with predictable costs.`;
+    if(state.months === 12) note = `You save ฿${fmt(savedAmount)} — ${fmt(Math.round(state.price * 0.9))} THB/unit/mo locked in for a full year.`;
+    else if(state.months === 6) note = `You save ฿${fmt(savedAmount)} — ${fmt(Math.round(state.price * 0.95))} THB/unit/mo for 6 months.`;
     else note = `3-month starter — perfect to try the service before committing long-term.`;
     document.getElementById('savingNote').textContent = note;
   }
@@ -1033,8 +1434,44 @@ const rvObs = new IntersectionObserver(entries=>{
 },{threshold:.1});
 rvEls.forEach(el=>rvObs.observe(el));
 
+// Hamburger menu
+const hamburger = document.getElementById('hamburger');
+const mobileMenu = document.getElementById('mobileMenu');
+hamburger.addEventListener('click', ()=>{
+  hamburger.classList.toggle('active');
+  mobileMenu.classList.toggle('open');
+  document.body.style.overflow = mobileMenu.classList.contains('open') ? 'hidden' : '';
+});
+function closeMobile(){
+  hamburger.classList.remove('active');
+  mobileMenu.classList.remove('open');
+  document.body.style.overflow = '';
+}
+
+// FAQ accordion
+function toggleFaq(el){
+  const answer = el.nextElementSibling;
+  const wasActive = el.classList.contains('active');
+  // close all
+  document.querySelectorAll('.faq-q.active').forEach(q=>{
+    q.classList.remove('active');
+    q.nextElementSibling.classList.remove('open');
+  });
+  if(!wasActive){
+    el.classList.add('active');
+    answer.classList.add('open');
+  }
+}
+
 // Init
 updateCalc();
 </script>
+
+<!-- WhatsApp FAB -->
+<a href="https://wa.me/66649329236?text=Hi%20UrbanVault%2C%20I%27d%20like%20to%20know%20more%20about%20your%20property%20monitoring%20service." target="_blank" class="wa-fab" aria-label="Chat on WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347zM12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.96 9.96 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/></svg>
+</a>
+<div class="wa-tooltip">Chat with us on WhatsApp</div>
+
 </body>
 </html>
