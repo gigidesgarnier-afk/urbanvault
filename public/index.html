@@ -1115,20 +1115,20 @@ footer{
           <div class="cf-row">
             <div class="form-field">
               <label class="form-label">Name</label>
-              <input type="text" class="form-input" placeholder="Your full name" required>
+              <input type="text" name="name" class="form-input" placeholder="Your full name" required>
             </div>
             <div class="form-field">
               <label class="form-label">Email</label>
-              <input type="email" class="form-input" placeholder="you@email.com" required>
+              <input type="email" name="email" class="form-input" placeholder="you@email.com" required>
             </div>
           </div>
           <div class="form-field">
             <label class="form-label">Property Address</label>
-            <input type="text" class="form-input" placeholder="e.g. Sukhumvit Soi 11, Bangkok">
+            <input type="text" name="property_address" class="form-input" placeholder="e.g. Sukhumvit Soi 11, Bangkok">
           </div>
           <div class="form-field">
             <label class="form-label">Message</label>
-            <textarea class="form-ta" placeholder="Tell us about your property and what you're looking for…" style="min-height:120px"></textarea>
+            <textarea name="message" class="form-ta" placeholder="Tell us about your property and what you're looking for…" style="min-height:120px"></textarea>
           </div>
           <button type="submit" class="btn-gold" style="width:100%;justify-content:center">
             Request Property Monitoring
@@ -1413,12 +1413,32 @@ function processPayment(){
 // ── CONTACT FORM ──
 function handleContactSubmit(e){
   e.preventDefault();
-  const btn = e.target.querySelector('button');
-  btn.textContent = 'Sending…';btn.disabled=true;
-  setTimeout(()=>{
-    document.getElementById('contactForm').style.display='none';
-    document.getElementById('contactSuccess').style.display='block';
-  }, 1000);
+  const form = e.target;
+  const btn = form.querySelector('button');
+  btn.textContent = 'Sending…'; btn.disabled = true;
+
+  const data = new FormData(form);
+
+  fetch('https://formspree.io/f/xaqpvnba', {
+    method: 'POST',
+    body: data,
+    headers: { 'Accept': 'application/json' }
+  })
+  .then(res => {
+    if(res.ok){
+      document.getElementById('contactForm').style.display = 'none';
+      document.getElementById('contactSuccess').style.display = 'block';
+    } else {
+      btn.textContent = 'Try Again';
+      btn.disabled = false;
+      alert('Something went wrong. Please email us directly at urbanvault.th@gmail.com');
+    }
+  })
+  .catch(()=>{
+    btn.textContent = 'Try Again';
+    btn.disabled = false;
+    alert('Network error. Please email us directly at urbanvault.th@gmail.com');
+  });
 }
 
 // ── NAV SCROLL ──
