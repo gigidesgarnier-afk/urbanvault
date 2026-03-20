@@ -82,7 +82,7 @@ nav.stuck{
   position:absolute;inset:0;
   background:
     linear-gradient(105deg,rgba(7,17,31,.97) 0%,rgba(7,17,31,.72) 52%,rgba(7,17,31,.28) 100%),
-    url('https://images.unsplash.com/photo-1582268611958-ebfd161ef9cf?w=1800&q=85') center/cover no-repeat;
+    url('https://images.unsplash.com/photo-1508009603885-50cf7c579365?w=1800&q=85') center/cover no-repeat;
   animation:kZoom 20s ease-out forwards;
 }
 @keyframes kZoom{from{transform:scale(1.07)}to{transform:scale(1)}}
@@ -649,10 +649,14 @@ footer{
 .status-warn{background:#f59e0b}
 .report-photos{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:10px 0}
 .report-photo-box{
-  background:#f0f0f0;border-radius:3px;aspect-ratio:4/3;display:flex;
-  align-items:center;justify-content:center;font-size:.6rem;color:#999;flex-direction:column;gap:2px
+  border-radius:3px;aspect-ratio:4/3;overflow:hidden;position:relative;
 }
-.report-photo-box svg{opacity:.4}
+.report-photo-box img{width:100%;height:100%;object-fit:cover;display:block}
+.report-photo-box span{
+  position:absolute;bottom:0;left:0;right:0;
+  background:rgba(7,17,31,.65);color:#fff;font-size:.52rem;
+  letter-spacing:.05em;text-transform:uppercase;padding:3px 5px;text-align:center;
+}
 .report-stamp{
   text-align:center;margin-top:14px;padding:8px;border:1.5px solid #c8a96e;border-radius:3px;
   font-size:.65rem;color:#c8a96e;letter-spacing:.05em;text-transform:uppercase;
@@ -717,9 +721,9 @@ footer{
   <div class="hero-bg"></div>
   <div class="hero-content">
     <div class="hero-overline">Bangkok Property Monitoring</div>
-    <h1 class="hero-h1">Your Property.<br><i>Monitored.</i></h1>
-    <p class="hero-sub">Bangkok Property Monitoring Service for Overseas Owners</p>
-    <p class="hero-desc">UrbanVault keeps your Bangkok condo safe, maintained, and ready — wherever in the world you happen to be.</p>
+    <h1 class="hero-h1">Your Property.<br><i>Protected.</i></h1>
+    <p class="hero-sub">Professional Property Monitoring for Overseas Owners</p>
+    <p class="hero-desc">UrbanVault keeps your Bangkok property safe, maintained, and ready — wherever in the world you happen to be.</p>
     <a href="#calculator" class="btn-gold">
       Calculate Your Plan
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
@@ -884,10 +888,10 @@ footer{
               <span class="result-total-val">฿<span id="totalNum">17,400</span></span>
             </div>
             <p class="result-note" id="savingNote"></p>
-            <button class="btn-gold" style="width:100%;justify-content:center" onclick="openModal()">
-              Proceed to Payment
+            <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;text-decoration:none" onclick="prefillPlan()">
+              Get in Touch
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </button>
+            </a>
           </div>
         </div>
       </div>
@@ -983,28 +987,28 @@ footer{
           <div style="font-size:.68rem;font-weight:500;text-transform:uppercase;letter-spacing:.06em;color:#1a2b4a;margin-bottom:6px">2. Photos From Inspection</div>
           <div class="report-photos">
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Living Room
+              <img src="https://images.unsplash.com/photo-1631049307264-da0ec9d70304?w=300&q=80" alt="Living Room">
+              <span>Living Room</span>
             </div>
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Kitchen
+              <img src="https://images.unsplash.com/photo-1556909114-f6e7ad7d3136?w=300&q=80" alt="Kitchen">
+              <span>Kitchen</span>
             </div>
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Bedroom
+              <img src="https://images.unsplash.com/photo-1616594039964-ae9021a400a0?w=300&q=80" alt="Bedroom">
+              <span>Bedroom</span>
             </div>
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Bathroom
+              <img src="https://images.unsplash.com/photo-1552321554-5fefe8c9ef14?w=300&q=80" alt="Bathroom">
+              <span>Bathroom</span>
             </div>
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Balcony
+              <img src="https://images.unsplash.com/photo-1600585154526-990dced4db0d?w=300&q=80" alt="Balcony">
+              <span>Balcony</span>
             </div>
             <div class="report-photo-box">
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5"/><polyline points="21 15 16 10 5 21"/></svg>
-              Entrance
+              <img src="https://images.unsplash.com/photo-1555041469-a586c61ea9bc?w=300&q=80" alt="Entrance">
+              <span>Entrance</span>
             </div>
           </div>
 
@@ -1128,7 +1132,7 @@ footer{
           </div>
           <div class="form-field">
             <label class="form-label">Message</label>
-            <textarea name="message" class="form-ta" placeholder="Tell us about your property and what you're looking for…" style="min-height:120px"></textarea>
+            <textarea name="message" id="messageInput" class="form-ta" placeholder="Tell us about your property and what you're looking for…" style="min-height:120px"></textarea>
           </div>
           <button type="submit" class="btn-gold" style="width:100%;justify-content:center">
             Request Property Monitoring
@@ -1453,6 +1457,13 @@ const rvObs = new IntersectionObserver(entries=>{
   entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');rvObs.unobserve(e.target)}});
 },{threshold:.1});
 rvEls.forEach(el=>rvObs.observe(el));
+
+// Prefill contact form from calculator
+function prefillPlan(){
+  const pkgNames = {essential:'Essential',standard:'Standard',premium:'Premium'};
+  const msg = document.getElementById('messageInput');
+  if(msg) msg.value = `Hi, I'm interested in the ${pkgNames[state.pkg]} plan for ${state.units} unit(s) over ${state.months} months. Please get in touch.`;
+}
 
 // Hamburger menu
 const hamburger = document.getElementById('hamburger');
