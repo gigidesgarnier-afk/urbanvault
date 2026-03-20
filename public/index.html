@@ -533,6 +533,20 @@ footer{
 .rv.in{opacity:1;transform:none}
 .rv-d1{transition-delay:.1s}.rv-d2{transition-delay:.2s}.rv-d3{transition-delay:.3s}.rv-d4{transition-delay:.4s}
 
+/* ─── PAYMENT TABS ─── */
+.pay-tabs{display:flex;gap:4px;margin-bottom:24px;background:rgba(255,255,255,.06);padding:4px;border-radius:6px}
+.pay-tab{flex:1;padding:10px 6px;background:none;border:none;color:var(--white-70);font-size:.68rem;letter-spacing:.1em;text-transform:uppercase;cursor:pointer;border-radius:4px;transition:all .25s;font-family:'Jost',sans-serif;display:flex;flex-direction:column;align-items:center;gap:6px}
+.pay-tab svg{width:18px;height:18px;stroke:currentColor;fill:none;stroke-width:1.5}
+.pay-tab.active{background:rgba(200,169,110,.15);color:var(--gold)}
+.pay-panel{display:none;text-align:center;padding:8px 0 4px}
+.pay-panel.active{display:block}
+.pay-panel-title{font-family:'Playfair Display',serif;font-size:1rem;color:var(--white);margin-bottom:8px}
+.pay-panel p{font-size:.83rem;color:var(--white-70);line-height:1.7;margin-bottom:16px}
+.pay-note{font-size:.76rem;color:var(--white-70);margin-top:14px;line-height:1.7;opacity:.8}
+.promptpay-box{background:#fff;border-radius:10px;display:inline-block;padding:12px;margin:12px auto}
+.promptpay-amount{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);margin:10px 0 4px}
+.promptpay-num{font-size:.78rem;color:var(--white-70);letter-spacing:.06em}
+
 /* ─── HAMBURGER ─── */
 .hamburger{display:none;background:none;border:none;cursor:pointer;padding:6px;z-index:301}
 .hamburger span{display:block;width:24px;height:2px;background:var(--white);margin:5px 0;transition:all .3s}
@@ -890,13 +904,13 @@ footer{
           <tr>
             <td></td>
             <td class="cmp-center" style="padding:20px 16px">
-              <a href="#contact" class="btn-outline" style="font-size:.72rem;padding:10px 20px">Get Started</a>
+              <button onclick="openModalForPlan('essential')" class="btn-outline" style="font-size:.72rem;padding:10px 20px">Get Started</button>
             </td>
             <td class="cmp-center cmp-col-std" style="padding:20px 16px">
-              <a href="#contact" class="btn-gold" style="font-size:.72rem;padding:10px 20px;justify-content:center">Get Started</a>
+              <button onclick="openModalForPlan('standard')" class="btn-gold" style="font-size:.72rem;padding:10px 20px;justify-content:center">Get Started</button>
             </td>
             <td class="cmp-center" style="padding:20px 16px">
-              <a href="#contact" class="btn-outline" style="font-size:.72rem;padding:10px 20px">Get Started</a>
+              <button onclick="openModalForPlan('premium')" class="btn-outline" style="font-size:.72rem;padding:10px 20px">Get Started</button>
             </td>
           </tr>
         </tbody>
@@ -1056,10 +1070,11 @@ footer{
               <span class="result-total-val">฿<span id="totalNum">17,400</span></span>
             </div>
             <p class="result-note" id="savingNote"></p>
-            <a href="#contact" class="btn-gold" style="width:100%;justify-content:center;text-decoration:none" onclick="prefillPlan()">
-              Get in Touch
+            <button class="btn-gold" style="width:100%;justify-content:center" onclick="openModal()">
+              Get Started — Choose Payment
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-            </a>
+            </button>
+            <p style="text-align:center;margin-top:12px;font-size:.76rem;color:var(--white-70)">Have questions? <a href="#contact" style="color:var(--gold);text-decoration:none">Contact us first →</a></p>
           </div>
         </div>
       </div>
@@ -1368,35 +1383,55 @@ footer{
           </div>
         </div>
 
-        <!-- Payment method -->
-        <div class="form-label" style="margin-bottom:14px;font-size:.68rem;letter-spacing:.2em">Payment Method</div>
-        <div class="pay-methods" id="payMethods">
-          <div class="pay-method active" data-method="card" onclick="selectPay(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            <span>Credit / Debit Card</span>
-            <div class="pay-method-dot"></div>
-          </div>
-          <div class="pay-method" data-method="stripe" onclick="selectPay(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
-            <span>Stripe</span>
-            <div class="pay-method-dot"></div>
-          </div>
-          <div class="pay-method" data-method="promptpay" onclick="selectPay(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6"/></svg>
-            <span>PromptPay</span>
-            <div class="pay-method-dot"></div>
-          </div>
-          <div class="pay-method" data-method="transfer" onclick="selectPay(this)">
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
-            <span>Bank Transfer</span>
-            <div class="pay-method-dot"></div>
-          </div>
+        <!-- Payment Tabs -->
+        <div class="form-label" style="margin-bottom:14px;font-size:.68rem;letter-spacing:.2em">Choose Payment Method</div>
+        <div class="pay-tabs">
+          <button class="pay-tab active" data-tab="card" onclick="switchPayTab(this)">
+            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
+            Credit Card
+          </button>
+          <button class="pay-tab" data-tab="promptpay" onclick="switchPayTab(this)">
+            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M17 17h3v3M14 20h3"/></svg>
+            PromptPay
+          </button>
+          <button class="pay-tab" data-tab="wise" onclick="switchPayTab(this)">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
+            Wise
+          </button>
         </div>
 
-        <button class="btn-gold" style="width:100%;justify-content:center" onclick="processPayment()">
-          Confirm &amp; Pay
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-        </button>
+        <!-- Card Panel -->
+        <div class="pay-panel active" id="panel-card">
+          <div class="pay-panel-title">Pay by Credit or Debit Card</div>
+          <p>Visa, Mastercard, American Express — billed monthly via Stripe.</p>
+          <a id="stripePayBtn" href="#" target="_blank" class="btn-gold" style="justify-content:center;text-decoration:none;display:flex">
+            Pay with Card
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="pay-note">You'll be redirected to Stripe's secure checkout. Your card is charged monthly and you can cancel anytime.</p>
+        </div>
+
+        <!-- PromptPay Panel -->
+        <div class="pay-panel" id="panel-promptpay">
+          <div class="pay-panel-title">PromptPay QR</div>
+          <div class="promptpay-box">
+            <img id="promptpayQR" width="200" height="200" alt="PromptPay QR" style="display:block">
+          </div>
+          <div class="promptpay-amount" id="promptpayAmount">฿—</div>
+          <div class="promptpay-num">PromptPay · 064-932-9236</div>
+          <p class="pay-note">Scan with any Thai banking app. After payment, send your slip to WhatsApp <strong style="color:var(--gold)">+66 64 932 9236</strong> to confirm your service.</p>
+        </div>
+
+        <!-- Wise Panel -->
+        <div class="pay-panel" id="panel-wise">
+          <div class="pay-panel-title">International Transfer via Wise</div>
+          <p>Ideal for overseas owners. Low fees, fast transfer, and no hidden charges.</p>
+          <a href="https://wise.com/pay/me/kanjapawns" target="_blank" class="btn-gold" style="justify-content:center;text-decoration:none;display:flex">
+            Pay via Wise
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="pay-note">After payment, email your confirmation to <strong style="color:var(--gold)">urbanvault.th@gmail.com</strong> and we'll start your service within 48 hours.</p>
+        </div>
       </div>
 
       <!-- Success state -->
@@ -1534,6 +1569,20 @@ function selectDur(el){
 }
 
 // ── MODAL ──
+// Open modal pre-set to a specific plan (from compare table)
+function openModalForPlan(pkg){
+  const card = document.querySelector(`.pkg-card[data-pkg="${pkg}"]`);
+  if(card) selectPkg(card);
+  openModal();
+}
+
+// ── PAYMENT CONFIG ──
+const stripeLinks = {
+  essential: 'https://buy.stripe.com/dRmdR99CL39o5G8531bII00',
+  standard:  'https://buy.stripe.com/dRm7sL4ir5hwb0seDBbII01',
+  premium:   'https://buy.stripe.com/7sYeVdeX5fWa3y0eDBbII02'
+};
+
 function openModal(){
   const {monthly, total} = calcPrices();
   const pkgNames = {essential:'Essential',standard:'Standard',premium:'Premium'};
@@ -1544,6 +1593,12 @@ function openModal(){
     <div class="modal-summary-row"><span>Monthly</span><span>฿${fmt(monthly)}</span></div>
     <div class="modal-summary-row"><span>Contract Total</span><span>฿${fmt(total)}</span></div>
   `;
+  // Set Stripe link for selected plan
+  document.getElementById('stripePayBtn').href = stripeLinks[state.pkg];
+  // Generate PromptPay QR with monthly price
+  generatePromptPayQR(monthly);
+  // Reset to card tab
+  switchPayTabByName('card');
   document.getElementById('modalFormSection').style.display='block';
   document.getElementById('modalSuccess').style.display='none';
   document.getElementById('modalBackdrop').classList.add('open');
@@ -1559,27 +1614,42 @@ document.getElementById('modalBackdrop').addEventListener('click',function(e){
   if(e.target===this)closeModal();
 });
 
-function selectPay(el){
-  document.querySelectorAll('.pay-method').forEach(p=>p.classList.remove('active'));
+function switchPayTab(el){
+  document.querySelectorAll('.pay-tab').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.pay-panel').forEach(p=>p.classList.remove('active'));
   el.classList.add('active');
+  document.getElementById('panel-'+el.dataset.tab).classList.add('active');
+}
+function switchPayTabByName(name){
+  document.querySelectorAll('.pay-tab').forEach(t=>{
+    t.classList.toggle('active', t.dataset.tab===name);
+  });
+  document.querySelectorAll('.pay-panel').forEach(p=>p.classList.remove('active'));
+  document.getElementById('panel-'+name).classList.add('active');
 }
 
-function processPayment(){
-  const name = document.getElementById('payName').value.trim();
-  const email = document.getElementById('payEmail').value.trim();
-  if(!name || !email){
-    alert('Please enter your name and email to continue.');
-    return;
+// ── PROMPTPAY QR GENERATION ──
+function crc16(str){
+  let crc=0xFFFF;
+  for(let i=0;i<str.length;i++){
+    crc^=str.charCodeAt(i)<<8;
+    for(let j=0;j<8;j++) crc=((crc&0x8000)?((crc<<1)^0x1021):(crc<<1))&0xFFFF;
   }
-  // Simulate processing
-  const btn = event.target.closest('button');
-  btn.textContent = 'Processing…';
-  btn.disabled = true;
-  setTimeout(()=>{
-    document.getElementById('modalFormSection').style.display='none';
-    document.getElementById('modalSuccess').style.display='block';
-    document.getElementById('successEmail').textContent = email;
-  }, 1400);
+  return crc.toString(16).toUpperCase().padStart(4,'0');
+}
+
+function generatePromptPayQR(amount){
+  const phone = '0066649329236';
+  const merchantInfo = '0016A000000677010111'+'0113'+phone;
+  const merchantInfoStr = '29'+merchantInfo.length.toString().padStart(2,'0')+merchantInfo;
+  const amountStr = amount.toFixed(2);
+  let p = '000201'+'010212'+merchantInfoStr+'5303764';
+  p += '54'+amountStr.length.toString().padStart(2,'0')+amountStr;
+  p += '5802TH'+'6304';
+  p += crc16(p);
+  document.getElementById('promptpayAmount').textContent = '฿'+fmt(amount)+' / month';
+  document.getElementById('promptpayQR').src =
+    'https://api.qrserver.com/v1/create-qr-code/?size=200x200&margin=8&data='+encodeURIComponent(p);
 }
 
 // ── CONTACT FORM ──
