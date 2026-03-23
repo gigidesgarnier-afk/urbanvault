@@ -1482,10 +1482,6 @@ function openModal(){
   `;
   // Set Stripe link for selected plan + duration
   document.getElementById('stripePayBtn').href = stripeLinks[state.pkg][state.months];
-  // Generate PromptPay QR with monthly price
-  generatePromptPayQR(monthly);
-  // Reset to card tab
-  switchPayTabByName('card');
   document.getElementById('modalFormSection').style.display='block';
   document.getElementById('modalSuccess').style.display='none';
   document.getElementById('modalBackdrop').classList.add('open');
