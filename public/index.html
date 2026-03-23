@@ -1296,60 +1296,17 @@ footer{
           </div>
         </div>
 
-        <!-- Payment Tabs -->
-        <div class="form-label" style="margin-bottom:14px;font-size:.68rem;letter-spacing:.2em">Choose Payment Method</div>
-        <div class="pay-tabs">
-          <button class="pay-tab active" data-tab="card" onclick="switchPayTab(this)">
-            <svg viewBox="0 0 24 24"><rect x="1" y="4" width="22" height="16" rx="2"/><line x1="1" y1="10" x2="23" y2="10"/></svg>
-            Credit Card
-            <span style="display:block;font-size:.58rem;letter-spacing:.1em;color:var(--gold);margin-top:3px;font-weight:500">RECOMMENDED</span>
-          </button>
-          <button class="pay-tab" data-tab="promptpay" onclick="switchPayTab(this)">
-            <svg viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><path d="M14 14h3v3M17 17h3v3M14 20h3"/></svg>
-            PromptPay
-          </button>
-          <button class="pay-tab" data-tab="wise" onclick="switchPayTab(this)">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 010 20M12 2a15.3 15.3 0 000 20"/></svg>
-            Wise
-          </button>
+        <!-- Card Payment -->
+        <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(200,169,110,.06);border:1px solid rgba(200,169,110,.2);padding:14px 16px;margin-bottom:20px;font-size:.84rem;color:var(--white-70);line-height:1.6">
+          <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span><strong style="color:var(--white)">Fully automatic</strong> — your card is charged every month on the same date. Nothing to remember, no manual transfers.</span>
         </div>
-
-        <!-- Card Panel -->
-        <div class="pay-panel active" id="panel-card">
-          <div class="pay-panel-title">Pay by Credit or Debit Card</div>
-          <div style="display:flex;align-items:flex-start;gap:12px;background:rgba(200,169,110,.06);border:1px solid rgba(200,169,110,.2);padding:14px 16px;margin-bottom:18px;font-size:.84rem;color:var(--white-70);line-height:1.6">
-            <svg viewBox="0 0 24 24" fill="none" stroke="var(--gold)" stroke-width="1.5" style="width:18px;height:18px;flex-shrink:0;margin-top:2px"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
-            <span><strong style="color:var(--white)">Fully automatic</strong> — your card is charged every month on the same date. Nothing to remember, no manual transfers.</span>
-          </div>
-          <p style="font-size:.84rem;color:var(--white-70);margin-bottom:16px">Visa, Mastercard, American Express accepted — secured by Stripe.</p>
-          <a id="stripePayBtn" href="#" target="_blank" class="btn-gold" style="justify-content:center;text-decoration:none;display:flex">
-            Pay with Card — Auto Monthly
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <p class="pay-note">You'll be redirected to Stripe's secure checkout. You can cancel anytime from your email confirmation.</p>
-        </div>
-
-        <!-- PromptPay Panel -->
-        <div class="pay-panel" id="panel-promptpay">
-          <div class="pay-panel-title">PromptPay QR</div>
-          <div class="promptpay-box">
-            <img id="promptpayQR" width="200" height="200" alt="PromptPay QR" style="display:block">
-          </div>
-          <div class="promptpay-amount" id="promptpayAmount">฿—</div>
-          <div class="promptpay-num">PromptPay · 064-932-9236</div>
-          <p class="pay-note">Scan with any Thai banking app. After payment, send your slip to WhatsApp <strong style="color:var(--gold)">+66 64 932 9236</strong>. You will need to repeat this payment each month.</p>
-        </div>
-
-        <!-- Wise Panel -->
-        <div class="pay-panel" id="panel-wise">
-          <div class="pay-panel-title">International Transfer via Wise</div>
-          <p>Ideal for overseas owners. Low fees, fast transfer, and no hidden charges.</p>
-          <a href="https://wise.com/pay/me/kanjapawns" target="_blank" class="btn-gold" style="justify-content:center;text-decoration:none;display:flex">
-            Pay via Wise
-            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
-          </a>
-          <p class="pay-note">After payment, email your confirmation to <strong style="color:var(--gold)">urbanvault.th@gmail.com</strong>. You can set up a monthly standing order from your bank to automate future payments.</p>
-        </div>
+        <p style="font-size:.84rem;color:var(--white-70);margin-bottom:16px">Visa, Mastercard, American Express accepted — secured by Stripe.</p>
+        <a id="stripePayBtn" href="#" target="_blank" class="btn-gold" style="justify-content:center;text-decoration:none;display:flex">
+          Pay with Card — Auto Monthly
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:16px;height:16px"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+        </a>
+        <p class="pay-note">You'll be redirected to Stripe's secure checkout. You can cancel anytime from your email confirmation.</p>
       </div>
 
       <!-- Success state -->
