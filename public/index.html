@@ -1488,9 +1488,21 @@ function openModalForPlan(pkg){
 
 // ── PAYMENT CONFIG ──
 const stripeLinks = {
-  essential: 'https://buy.stripe.com/dRmdR99CL39o5G8531bII00',
-  standard:  'https://buy.stripe.com/dRm7sL4ir5hwb0seDBbII01',
-  premium:   'https://buy.stripe.com/7sYeVdeX5fWa3y0eDBbII02'
+  essential: {
+    3:  'https://buy.stripe.com/dRmdR99CL39o5G8531bII00',
+    6:  'https://buy.stripe.com/aFa14n8yHaBQ3y00MLbII03',
+    12: 'https://buy.stripe.com/3cIbJ1dT15hw9WoanlbII06'
+  },
+  standard: {
+    3:  'https://buy.stripe.com/dRm7sL4ir5hwb0seDBbII01',
+    6:  'https://buy.stripe.com/eVq9AT9CLdO29Wo531bII04',
+    12: 'https://buy.stripe.com/cNi00j6qzaBQc4wcvtbII07'
+  },
+  premium: {
+    3:  'https://buy.stripe.com/7sYeVdeX5fWa3y0eDBbII02',
+    6:  'https://buy.stripe.com/9B6dR9cOX8tI4C4cvtbII05',
+    12: 'https://buy.stripe.com/fZu5kD02bh0eecEdzxbII08'
+  }
 };
 
 function openModal(){
@@ -1503,8 +1515,8 @@ function openModal(){
     <div class="modal-summary-row"><span>Monthly</span><span>฿${fmt(monthly)}</span></div>
     <div class="modal-summary-row"><span>Contract Total</span><span>฿${fmt(total)}</span></div>
   `;
-  // Set Stripe link for selected plan
-  document.getElementById('stripePayBtn').href = stripeLinks[state.pkg];
+  // Set Stripe link for selected plan + duration
+  document.getElementById('stripePayBtn').href = stripeLinks[state.pkg][state.months];
   // Generate PromptPay QR with monthly price
   generatePromptPayQR(monthly);
   // Reset to card tab
