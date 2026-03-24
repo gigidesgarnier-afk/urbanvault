@@ -60,8 +60,7 @@ nav.stuck{
   backdrop-filter:blur(14px);
   border-color:var(--gold-border);
 }
-.logo{font-family:'Playfair Display',serif;font-size:1.45rem;font-weight:400;letter-spacing:.1em;text-transform:uppercase;color:var(--white)}
-.logo b{color:var(--gold);font-weight:400}
+.logo-wrap{display:flex;align-items:center;text-decoration:none;flex-shrink:0}
 .nav-right{display:flex;align-items:center;gap:36px}
 .nav-link{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;color:var(--white-70);text-decoration:none;transition:color .25s}
 .nav-link:hover{color:var(--gold)}
@@ -738,7 +737,25 @@ footer{
 
 <!-- NAV -->
 <nav id="nav">
-  <div class="logo">Urban<b>Vault</b></div>
+  <a href="/" class="logo-wrap">
+    <svg width="180" height="44" viewBox="0 0 240 74" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <!-- Arch / vault shape -->
+      <path d="M30 42 Q30 10 60 10 Q90 10 90 42 L90 54 L30 54 Z" fill="#07111f"/>
+      <!-- Buildings white -->
+      <rect x="47" y="24" width="9" height="30" fill="white"/>
+      <rect x="59" y="18" width="10" height="36" fill="white"/>
+      <rect x="72" y="28" width="8" height="26" fill="white"/>
+      <!-- Buildings gold -->
+      <rect x="38" y="34" width="7" height="20" fill="#c8a96e"/>
+      <rect x="82" y="32" width="7" height="22" fill="#c8a96e"/>
+      <!-- Base line -->
+      <line x1="28" y1="54" x2="92" y2="54" stroke="#c8a96e" stroke-width="1.5"/>
+      <!-- URBANVAULT text -->
+      <text x="100" y="36" font-family="'Jost',sans-serif" font-size="18" font-weight="500" letter-spacing="2" fill="#f5f0e8">URBANVAULT</text>
+      <!-- PROPERTY MONITORING -->
+      <text x="101" y="50" font-family="'Jost',sans-serif" font-size="7.5" font-weight="300" letter-spacing="3" fill="#c8a96e">PROPERTY MONITORING</text>
+    </svg>
+  </a>
   <div class="nav-right">
     <a href="#calculator" class="nav-link">Calculator</a>
     <a href="#trust" class="nav-link">Why Us</a>
